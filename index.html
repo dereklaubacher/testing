@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">-->
+    <meta name="viewport" content= "width=device-width, user-scalable=no, initial-scale=.7">
+    <meta name="description" content="Anime Search App">
+    <meta name="author" content="Derek Laubacher">
+
+    <title>Search for Anime!</title>
+
+    <!-- Bootstrap core CSS -->
+<!--    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <link href="https://fonts.googleapis.com/css?family=Anton|Merriweather|Oswald|Playfair+Display|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&effect=outline" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../css/style.css">
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+</head>
+
+<body>
+
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-transparent border-right sidebar-wrapper" id="sidebar-wrapper">
+        <div class="sidebar-heading" > Results</div>
+        <div class="paginate_buttons" id ="paginate_buttons">
+<!--        <button id="back_button" class ="pageInate  btn-outline-dark  border-right">back</button>-->
+<!--        <button id="next_button" class ="pageInate btn-outline-dark  border-right">next</button>-->
+        </div>
+        <div class="results" id="results">
+      <ul id="anime_search_list" class="anime_search_list" style="list-style: none">
+<!--          <li>-->
+<!--              <a class="results__link results__link&#45;&#45;active" href="#23456">-->
+<!--                  <figure class="results__fig">-->
+<!--&lt;!&ndash;                      <img src="" alt="Test" style="height:250px;width:200px;">&ndash;&gt;-->
+<!--                  </figure>-->
+<!--                  <div class="results__data">-->
+<!--                      <h4 class="results__name">Nothing to see here!</h4>-->
+<!--                      <p class="results__author"></p>-->
+<!--                  </div>-->
+<!--              </a>-->
+
+<!--          </li>-->
+      </ul>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper" style="background-image:url(./img/background1.jpg);" >
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-white border-bottom" id="nav-bar" style="opacity:1;">
+            <button onclick="menuToggler()" class="btn btn-outline-dark" id="menu-toggle">=</button>
+            <form class ="animeSearch">
+                <button class="btn btn-dark" id ="animeButton">Search</button>
+                <label>
+                    <input onclick="searchActive()" class="searchAnime_input" type="text" placeholder="Search Anime">
+                </label>
+            </form>
+            <button onclick="openNav()" class ="btn btn-dark" id ="saved_list_button" class="saved_list_button">Watch List</button>
+
+
+<!--
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                <span class="navbar-toggler-icon"></span>-->
+<!--            </button>-->
+
+<!--            <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">-->
+<!--                    <li class="nav-item active">-->
+<!--                        <a class="nav-link" href="#">Link <span class="sr-only">(current)</span></a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="#">Link</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item dropdown">-->
+<!--                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                            Dropdown-->
+<!--                        </a>-->
+<!--                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">-->
+<!--                            <a class="dropdown-item" href="#">Action</a>-->
+<!--                            <a class="dropdown-item" href="#">Another action</a>-->
+<!--                            <div class="dropdown-divider"></div>-->
+<!--                            <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+        </nav>
+
+        <div class="container" id ="anime_content" align="left">
+            <div class="anime_content">
+                <div class="container-fluid">
+                    <div class = "font-effect-outline">
+                        <h1 class="summaryHead" id="titleTexts" >AnimeSearch</h1>
+                        <p class="summmaryText" id="summaryText"> </p>
+                    </div>
+                </div>
+
+                <div class="row" >
+                    <div class="col-xs-4 col-md-12 col-lg-4 col-sm-12" >
+                        <div class="stuff1">
+                            <img src ="../img/guts3.png" style="width:500px" id = "centerImage"  >
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-md-4 col-lg-4 col-sm-12" id="col1">
+                        <div class="stuff1" id = "anime_links">
+                            <p id="infoTextTitle" class="infoText"> Powered by: <br> Kitsu API</p>
+                            <p class="anime_id" style="display:none"></p>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <ul class="saved_anime_list" aria-labelledby="dropdownMenuButton"  style="list-style: none">
+                    <!-- stufuugit f -->
+<!--                    <li>-->
+<!--                        <div class = "font-effect-outline">-->
+<!--                            <a class="saved_link" href="tacos">-->
+<!--                                <figure class="results__fig">-->
+<!--                                    <p class="deleteText">Delete</p>-->
+<!--                                    <p class = "titleText" id="titleText"> etotama</p>-->
+<!--                                    <img src="https://media.kitsu.io/anime/poster_images/9976/medium.jpg?1430839092" alt="lmao" class="listImg" id ="listImg">-->
+<!--                                </figure>-->
+
+<!--                                <div class="results__data">-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                    <li>-->
+<!--                        <div class = "font-effect-outline">-->
+<!--                            <a class="results__link" href="tacos">-->
+<!--                                <figure class="results__fig">-->
+<!--                                    <p class="deleteText">Delete</p>-->
+<!--                                    <p class = "titleText" id="titleText"> etotama</p>-->
+<!--                                    <img src="https://media.kitsu.io/anime/poster_images/9976/medium.jpg?1430839092" alt="lmao" class="listImg" id ="listImg">-->
+<!--                                </figure>-->
+<!--                                <div class="results__data">-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <div class = "font-effect-outline">-->
+<!--                            <a class="results__link" href="tacos">-->
+<!--                                <figure class="results__fig">-->
+<!--                                    <p class="deleteText">Delete</p>-->
+<!--                                    <p class = "titleText" id="titleText">Desert Punk</p>-->
+<!--                                    <img src="https://media.kitsu.io/anime/poster_images/16/medium.jpg?1515895688" alt="lmao" class="listImg" id ="listImg">-->
+<!--                                </figure>-->
+<!--                                <div class="results__data">-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                    </li>-->
+                </ul>
+            </div>
+
+</div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Bootstrap core JavaScript -->
+<script src="js/jquery/jquery.min.js"></script>
+<script src=""></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    // let searchActive = document.getElementById("animeButton");
+    //  document.addEventListener(searchActive).click(
+    //      // document.getElementById("menu-toggle").click();
+    // let toggle =  document.getElementById('menu-toggle');
+    // $(toggle).css({"visibility": "visible"});
+    //  );
+
+
+    var count = 1;
+
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.getElementById("menu-toggle").click();
+    });
+
+    $("#menu-toggle").click(function(e) {
+         e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        // let element = document.getElementById('anime_search_list');
+        let element2 = document.getElementById('sidebar-wrapper');
+        // element.classList.toggle('toggled_menu');
+        element2.classList.toggle('toggled_menu');
+    });
+
+
+
+
+    function openNav() {
+        var listItems = document.getElementById('anime_search_list').children;
+        list = Array.from(listItems);
+        if( list.length === 0) {
+            document.getElementById("menu-toggle").click();
+            let toggle =  document.getElementById('menu-toggle');
+            $(toggle).css({"visibility": "visible"});
+        }
+        document.getElementById("mySidenav").style.width = "273px";
+        let next =  document.getElementById('next_button');
+        let back =  document.getElementById('back_button');
+        let element = document.getElementById('results');
+        let charNext =  document.getElementById('char_back');
+        let charBack =  document.getElementById('char_forward');
+        $(next).css({"visibility": "hidden"});
+        $(back).css({"visibility": "hidden"});
+        $(element).css({"visibility": "hidden"});
+        $(charBack).css({"visibility": "hidden"});
+        $(charNext).css({"visibility": "hidden"});
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        let next =  document.getElementById('next_button');
+        let back =  document.getElementById('back_button');
+        let charNext =  document.getElementById('char_back');
+        let charBack =  document.getElementById('char_forward');
+        let element = document.getElementById('results');
+        $(next).css({"visibility": "visible"});
+        $(back).css({"visibility": "visible"});
+        $(charBack).css({"visibility": "visible"});
+        $(charNext).css({"visibility": "visible"});
+        $(element).css({"visibility": "visible"});
+
+    }
+
+
+</script>
+
+
+
+
+<script type="text/javascript" src="bundle.js"></script></body>
+<style>
+.toggled_menu{
+  display:none;
+}
+
+</style>
+</html>
